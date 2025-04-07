@@ -50,6 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Theme switcher functionality
+        const themeSwitcher = document.querySelector('.theme-switcher');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Set initial theme based on user preference
+        if (prefersDarkScheme.matches) {
+            document.body.classList.add('dark-theme');
+        }
+
+        // Toggle theme on click
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
     } catch (error) {
         console.error('Error initializing website:', error);
     }
